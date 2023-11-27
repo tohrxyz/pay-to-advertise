@@ -4,8 +4,9 @@ const app = express();
 
 app.use(express.json());
 
-app.post('/open-url', (req, res) => {
-    const url = req.body.url;
+app.get('/open-url', (req, res) => {
+    const url = req.query.url;
+    console.log(req.body)
     console.log(url)
     exec(`firefox ${url}`, (error, stdout, stderr) => {
         if (error) {
